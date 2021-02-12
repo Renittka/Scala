@@ -126,7 +126,7 @@ object Hello extends App {
 
   // Scala class
   class Person(var firstName: String, var lastName: String) {
-    def printFullName() = println(s"$firstName $lastName")
+    def printFullName(): Unit = println(s"$firstName $lastName")
   }
 
   // complicated example
@@ -153,6 +153,41 @@ object Hello extends App {
   val x = sum(1,2)
   val y = concatenate("foo", "bar")
   println(x, y)
+
+  // Traits
+  trait Speaker {
+    def speak(): String // has no body, so it's abstract
+  }
+
+  trait TailWagger {
+    def startTail(): Unit = println("tail is wagging")
+    def stopTail(): Unit = println("tail is stopped")
+  }
+
+  trait Runner {
+    def startRunning(): Unit = println("I'm running")
+    def stopRunning(): Unit = println("Stopped running")
+  }
+
+  class Dog(name: String) extends Speaker with TailWagger with Runner {
+    def speak(): String = "Woof!"
+  }
+
+  class Cat(name: String) extends Speaker with TailWagger with Runner {
+    def speak(): String = "Meow"
+    override def startRunning(): Unit = println("Yeah ... I don't run")
+    override def stopRunning(): Unit = println("No need to stop")
+  }
+
+  val dog = new Dog("Reks")
+  val cat = new Cat("Catty")
+
+  println(dog.speak())
+  println(cat.speak())
+
+  dog.startRunning()
+  cat.startRunning()
+
   //print(ex2(2,3))
   //  print(ex3(1, 3))
   //  print(ex4(1))
