@@ -5,11 +5,11 @@ object Hello extends App {
   def ex0(): Unit ={
     val a = 1
     val b = "a string"
-    //val c = new Person("Regina")
+    // val c = new Person("Regina")
 
-    //val a: Int = 1
-    //val b: String = "a string"
-    //val c: Person = new Person("Regina")
+    // val a: Int = 1
+    // val b: String = "a string"
+    // val c: Person = new Person("Regina")
 }
 
   // Hello
@@ -35,14 +35,14 @@ object Hello extends App {
     x
   }
 
-  //match expressions
+  // match expressions
   def ex4(i:Int): String ={
-  //   val result = i match {
-  //     case 1 => "one"
-  //     case 2 => "two"
-  //     case _ => "not 1 or 2"
-  //   }
-  //   result
+    //  val result = i match {
+    //    case 1 => "one"
+    //    case 2 => "two"
+    //    case _ => "not 1 or 2"
+    //  }
+    //  result
 
     // alternative way
     i match {
@@ -58,7 +58,7 @@ object Hello extends App {
     println(x)
   }
 
-// boolean match expression
+  // boolean match expression
   def ex6(bool: Boolean): String ={
     val booleanAsString = bool match {
       case true => "true"
@@ -67,7 +67,7 @@ object Hello extends App {
     booleanAsString
   }
 
-// matching different types
+  // matching different types
   def getClassAsString(x: Any):String = x match {
     case s: String => s + " is a String"
     case i: Int => "Int"
@@ -77,7 +77,7 @@ object Hello extends App {
     case _ => "Unknown"
   }
 
-// try/catch exceptions
+  // try/catch exceptions
   def ex7(): Unit ={
     try {
       //writeToFile(text)
@@ -105,13 +105,56 @@ object Hello extends App {
       f <- fruits
       if f.length > 4
     } yield f.length
-    fruitLengths
+    print(fruitLengths)
+  }
+  def ex10(): Unit ={
+    var x = 1
+    var y = 2
+    // while loop
+    while(x<10) {
+      print(x + " ")
+      x = x + 1
+    }
+
+    // do-while
+    do {
+      print(y + " ")
+      y = y + 1
+    }
+    while(y<10)
   }
 
-  // ex1()
+  // Scala class
+  class Person(var firstName: String, var lastName: String) {
+    def printFullName() = println(s"$firstName $lastName")
+  }
+
+  // complicated example
+  //  class Pizza (
+  //                var crustSize: CrustSize,
+  //                var crustType: CrustType,
+  //                val toppings: ArrayBuffer[Topping]
+  //              ) {
+  //    def addTopping(t: Topping): Unit = toppings += t
+  //    def removeTopping(t: Topping): Unit = toppings -= t
+  //    def removeAllToppings(): Unit = toppings.clear()
+  //  }
+
+  // Class usage
+  val p = new Person("Julia", "Kern")
+  println(p.firstName)
+  p.lastName = "Manes"
+  p.printFullName()
+
+  // Scala methods
+  def sum(a: Int, b: Int): Int = a + b
+  def concatenate(s1: String, s2: String): String = s1 + s2
+
+  val x = sum(1,2)
+  val y = concatenate("foo", "bar")
+  println(x, y)
   //print(ex2(2,3))
   //  print(ex3(1, 3))
   //  print(ex4(1))
-//  ex5()
-  print(ex9())
+  //  ex5()
 }
