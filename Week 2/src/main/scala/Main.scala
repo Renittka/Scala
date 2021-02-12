@@ -188,6 +188,31 @@ object Hello extends App {
   dog.startRunning()
   cat.startRunning()
 
+  val nums = List.range(0, 10)
+  val nums1 = (1 to 10 by 2).toList
+  val letters = ('a' to 'f').toList
+  val letters1 = ('a' to 'f' by 2).toList
+
+  // foreach method
+  val names = List("joel", "ed", "chris", "maurice")
+  names.foreach(println)
+  // filter method
+  nums.filter(_ < 4).foreach(println)
+  // map method
+  val doubles = nums.map(_ * 2)
+  val capNames = names.map(_.capitalize)
+  val lessThanFive = nums.map(_ < 5)
+  // foldLeft method
+  nums.foldLeft(0)(_ + _)
+  nums.foldLeft(1)(_ * _)
+
+  // Tuples
+  class Person1(var name: String)
+  val t = (11, "Eleven", new Person1("Eleven"))
+  t._1
+  t._2
+  t._3
+  val (num, string, person) = (11, "Eleven", new Person1("Eleven"))
   //print(ex2(2,3))
   //  print(ex3(1, 3))
   //  print(ex4(1))
